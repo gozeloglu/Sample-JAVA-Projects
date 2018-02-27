@@ -6,8 +6,9 @@ public class Crypto{
 		String text = input.nextLine();
 
 		String newStr = normalizeText( text );
-		String newTxt = caesarify(newStr, 1);
-		System.out.println( newTxt );
+	//	String newTxt = caesarify(newStr, 1);
+		String groupStr = groupify( newStr, 2);
+		System.out.println( groupStr );
 	}
 
 	public static String normalizeText( String str ){
@@ -48,6 +49,36 @@ public class Crypto{
 
 		return result;
 	}
+
+
+	public static String groupify( String text, int perNumber ) {
+		String firstString = text.substring(0, perNumber);
+		String secondString = text.substring(perNumber, text.length());
+		String result = "";
+
+		if ( secondString.length() % 2 == 0 ) {
+			int i;
+			for ( i = 0; i < secondString.length(); i += 2 ){
+				result += secondString.substring(i, i+2);
+				result += " ";
+			}
+		}else {
+			int i; 
+			for ( i = 0; i < (secondString.length()-1); i += 2){
+				result += secondString.substring(i, i+2);
+				result += " ";
+			}
+			result += text.charAt( text.length() - 1 );
+			result += 'x';
+
+		}
+		return firstString + " " + result;
+	}
+
+
+
+
+
 }
 
 
