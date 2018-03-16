@@ -116,7 +116,7 @@ public class BattleShip {
         int userShip = 5;
         int counter = 0;
         int x_guess, y_guess;
-        while ( computerShip != 0 || userShip != 0 ) {
+        while ( computerShip != 0 && userShip != 0 ) {
             if ( counter % 2 == 0 ) {
                 System.out.println("YOUR TURN");
                 System.out.print("Enter X coordinate: ");
